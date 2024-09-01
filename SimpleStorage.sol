@@ -28,4 +28,26 @@ contract SimpleStorage {
     function add() public pure returns(uint256) {
         return (1 + 1);
     }
+
+    function addPerson(string memory _name, uint256 _favouriteNumber) public {
+        //! way number 1
+        // people.push(Person(_favouriteNumber, _name));
+
+        //! Way number 2
+        // Person memory newPerson = Person({
+        //     favouriteNumber: _favouriteNumber,
+        //     name: _name
+        // });
+        // people.push(newPerson);
+
+        //! Way number 3
+        // Person memory newPerson = Person(_favouriteNumber, _name);
+        // people.push(newPerson);
+
+        //! Way number 4 - the best in my openion
+        people.push(Person({
+            favouriteNumber: _favouriteNumber,
+            name: _name
+        }));
+    }
 }

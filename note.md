@@ -98,3 +98,29 @@ a way to define new types in the form of structs. [learn more](https://docs.soli
         name: "John",
     });
 ```
+
+### Array
+
+a data structure that holds a llist of other types. [learn more](https://docs.soliditylang.org/en/v0.8.26/types.html#arrays)
+
+Person[] => array of Person struct
+public => visibility
+people => name of the array
+
+```bash
+    Person[] public people;
+```
+
+#### Size of an Array
+
+People[] => dynamic array
+People[5] => fixed-size array
+
+#### Add to array
+
+```bash
+    people.push(Person({
+        favouriteNumber: _favouriteNumber,
+        name: _name
+    }));
+```
