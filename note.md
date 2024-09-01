@@ -53,7 +53,7 @@ you need to specify the type of the argument of the function
 
 to learn about function/variables visibility you can red the doc [here](https://docs.soliditylang.org/en/v0.8.26/cheatsheet.html#function-visibility-specifiers)
 
-### Function modifiers
+#### Function modifiers
 
 1. view => Disallows modification or access of state, just going to read the state of a contract => cost no gas
 2. pure => Disallows modification of state, also disallow you to read from the blockchain state => cost no gas
@@ -82,3 +82,19 @@ to learn about function/variables visibility you can red the doc [here](https://
 ```
 
 to learn about function modifiers you can red the doc [here](https://docs.soliditylang.org/en/v0.8.26/cheatsheet.html#modifiers)
+
+### Structs
+
+a way to define new types in the form of structs. [learn more](https://docs.soliditylang.org/en/v0.8.26/types.html#structs)
+
+```bash
+    struct Person {
+        uint256 favouriteNumber;
+        string name;
+    }
+
+    Person public person = Person({
+        favouriteNumber: 10,
+        name: "John",
+    });
+```

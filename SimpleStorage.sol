@@ -7,9 +7,18 @@ pragma solidity ^0.8.8; // 0.8.7 and newer version
 contract SimpleStorage {
     uint favouriteNumber = 10;
 
+    People public person = People({
+        favouriteNumber: 10,
+        name: "John"
+    });
+
+    struct People {
+        uint256 favouriteNumber;
+        string name;
+    }
+
     function store(uint256 _favouriteNumber) public {
         favouriteNumber = _favouriteNumber;
-        // retrieve(); // it will cost gas
     }
 
     function retrieve() public view returns(uint256) {
