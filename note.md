@@ -1,5 +1,18 @@
 # Solidity
 
+EVM => Ethereum Virtual Machine
+
+## Contract
+
+to create a contract we use the keyword "contract". it is like "class" in JS
+
+```js
+    //"SimpleStorage" => the name of the contract
+    contract SimpleStorage {
+        
+    }
+```
+
 ## Types
 
 There are many types in solidity but the most importants are:
