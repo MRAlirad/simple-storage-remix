@@ -124,3 +124,7 @@ People[5] => fixed-size array
         name: _name
     }));
 ```
+### Errrors & Warnings
+
+1. Warning => won't stop your code from working but it's usually a good idea to check them out
+2. Error => will stop your code from working
