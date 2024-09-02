@@ -168,3 +168,7 @@ a data structure where a key is mapped to a single value
         nameToFavouriteNumber[_name] = _favouriteNumber;
     }
 ```
+
+## Deploying Your Contract
+
+in Remix you can change the environment to "**InjectedProvider**" to connect to your metamask wallet. you can see your wallet address in "ACCOUNT" input
