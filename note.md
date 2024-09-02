@@ -124,7 +124,32 @@ People[5] => fixed-size array
         name: _name
     }));
 ```
+
 ### Errrors & Warnings
 
 1. Warning => won't stop your code from working but it's usually a good idea to check them out
 2. Error => will stop your code from working
+
+### Memory, Storage & Calldata
+
+EVM can access and store information in six places
+
+1. Memory => variable is only going to exist tempporarily and can be modified
+2. Storage => exist even outside of just the function execution and is permanent and can be mofified
+3. Calldata => variable is only going to exist tempporarily but can not be modified
+4. Stack
+5. Code
+6. Logs
+
+```bash
+    function addPerson(string memory _name, uinit256 _favouriteNumber) public {
+        _name = "cat"; // if _name is memeory it can be modified, but if it is calldata it is not possible to modified
+
+        people.push(Person({
+            favouriteNumber: _favouriteNumber,
+            name: _name
+        }));
+    }
+```
+
+-   data location can only be specified for array, struct or mapping types
