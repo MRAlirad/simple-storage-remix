@@ -17,7 +17,7 @@ You can see the whote types in [here](https://docs.soliditylang.org/en/v0.8.26/t
 
 to define a variabe first you write the type of it, then the name of the variable and finally the value of it.
 
-```bash
+```js
     bool hasFavouriteNumber = true;
     uint256 favouriteNumber = 123;
     string favouriteBook = "Lord of the rings";
@@ -26,7 +26,7 @@ to define a variabe first you write the type of it, then the name of the variabl
 
 by default variables are private and you can not access then when the contract is deployed. to access then you have to "public" them.
 
-```bash
+```js
     uint256 public favouriteNumber = 10
 ```
 
@@ -38,7 +38,7 @@ functions or methods execute a subset of code when called.
 
 you need to specify the type of the argument of the function
 
-```bash
+```js
     function store(uint256 _favouriteNumber) public {
         favouriteNumber = _favouriteNumber;
     }
@@ -69,7 +69,7 @@ to learn about function/variables visibility you can red the doc [here](https://
 
 -   they will cost a gas only when if ad gas calling function calls a view or pure functions.
 
-```bash
+```js
     // view
     function retrieve() public view returns(uint256) {
         return favouriteNumber;
@@ -87,7 +87,7 @@ to learn about function modifiers you can red the doc [here](https://docs.solidi
 
 a way to define new types in the form of structs. [learn more](https://docs.soliditylang.org/en/v0.8.26/types.html#structs)
 
-```bash
+```js
     struct Person {
         uint256 favouriteNumber;
         string name;
@@ -107,7 +107,7 @@ Person[] => array of Person struct
 public => visibility
 people => name of the array
 
-```bash
+```js
     Person[] public people;
 ```
 
@@ -118,11 +118,13 @@ People[5] => fixed-size array
 
 #### Add to array
 
-```bash
-    people.push(Person({
-        favouriteNumber: _favouriteNumber,
-        name: _name
-    }));
+```js
+people.push(
+	Person({
+		favouriteNumber: _favouriteNumber,
+		name: _name,
+	})
+);
 ```
 
 ### Errrors & Warnings
@@ -141,7 +143,7 @@ EVM can access and store information in six places
 5. Code
 6. Logs
 
-```bash
+```js
     function addPerson(string memory _name, uinit256 _favouriteNumber) public {
         _name = "cat"; // if _name is memeory it can be modified, but if it is calldata it is not possible to modified
 
@@ -153,3 +155,16 @@ EVM can access and store information in six places
 ```
 
 -   data location can only be specified for array, struct or mapping types
+
+### Mappings
+
+a data structure where a key is mapped to a single value
+
+```js
+    mapping(string => uint256) public nameToFavouriteNumber;
+
+    function addPerson(string memory _name, uinit256 _favouriteNumber) public {
+        // string name is being mapped to uint256 favouriteNumber;
+        nameToFavouriteNumber[_name] = _favouriteNumber;
+    }
+```

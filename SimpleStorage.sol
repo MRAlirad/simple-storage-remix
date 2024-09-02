@@ -7,6 +7,9 @@ pragma solidity ^0.8.8; // 0.8.7 and newer version
 contract SimpleStorage {
     uint favouriteNumber = 10;
 
+    // string name is being mapped to uint256 favouriteNumber;
+    mapping(string => uint256) public nameToFavouriteNumber;
+
     People public person = People({
         favouriteNumber: 10,
         name: "John"
@@ -49,5 +52,8 @@ contract SimpleStorage {
             favouriteNumber: _favouriteNumber,
             name: _name
         }));
+
+        // mapping
+        nameToFavouriteNumber[_name] = _favouriteNumber;
     }
 }
