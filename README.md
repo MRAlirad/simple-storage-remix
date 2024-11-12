@@ -363,6 +363,55 @@ function add_person(string memory _name, uint256 _favorite_number) public {
 
 With these features, our Solidity contract can now store multiple favorite numbers, each associated with a specific person. The `add_person` function creates a new `Person` struct and adds it to the `list_of_people` state variable. We can then view each person's name and favorite number by accessing the `Person` object through the array index.
 
+## Errors and warnings
+
+This time we'll explore **errors** and **warnings** and how to leverage forums, search engines and AI resources.
+
+If we remove a semicolon from the code and then try to compile it, you'll encounter some 🚫 **error messages**. They will prevent the compiler from converting the code into a machine-readable form.
+
+<img src='./images/errors-warnings/errors.png' alt='errors' />
+
+Restoring the semicolon to its correct position will prevent any errors, enabling us to proceed with deploying the code to the Remix VM.
+On the other hand, if we delete the SPDX license identifier from the top of our code and recompile, we will receive a yellow box showing a ⚠️ **warning**.
+
+```markdown
+> Warning: SPDX license identifier not provided in source file
+```
+
+<img src='./images/errors-warnings/warning.png' alt='warning' />
+
+Unlike errors, **warnings** allow the code to be compiled and deployed but it's wise to take them seriously and aim to remove them entirely. They point out poor or risky practices in your code and sometimes indicate potential bugs.
+
+-   If it's <span style="color:red">_red_</span>, there is a compilation error in the code and it needs to be solved before deployment.
+-   If it's <span style="color:#808000">_yellow_</span>, you might want to double-check and adjust your code.
+
+### Leverage your resources
+
+In situations when you do not understand the error that's prompted, using some online resources can make the situation clearer:
+
+-   AI Frens (ChatGPT, Phind, Bard, AI Chrome extensions,..)
+-   Github Discussions
+-   Stack Exchange Ethereum
+-   Peeranha
+
+#### Phind
+
+Let's now attempt to resolve the semicolon error we intentionally created before by using [Phind](https://www.phind.com/). Phind is an AI-powered search engine for developers. It operates by first conducting a Google search based on your query, and then parsing the results to give you a contextual response.
+
+We can input the compiler error under the drop-down menu, execute the search, and get a comprehensive explanation of why the error happened and how to fix it.
+
+<img src='./images/errors-warnings/phind-answer.png' alt='phind-answer' />
+
+#### Other resources
+
+It is advised to make active use of AI tools, as they can substantially boost your understanding and skills. Later in this course, we will explore how to ask effective questions, utilize AI prompts, structure your inquiries, and improve your search and learning techniques.
+
+You can also take part of online communities like **GitHub discussions** and **Stack Exchange**, where you'll find valuable insights, answers to your questions, and support from fellow developers.
+
+> 💡 **TIP** <br />
+> One of the most important aspects of being an excellent software engineer or prompt engineer is not just having the information but knowing where to find it.
+
+
 <!--
 
 ### Structs
