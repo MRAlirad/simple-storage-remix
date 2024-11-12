@@ -587,11 +587,11 @@ To deploy a contract to ZKsync, there are a few key steps to follow. First, it's
 
 ## Zksync Bridging
 
-In this lesson, we will guide you step-by-step to acquire zkSync ETH on the testnet using the _bridging method_. All the links referred to in this lesson can be found in the [GitHub repository](https://github.com/Cyfrin/foundry-full-course-cu?tab=readme-ov-file#recommended-tools) associated with this course.
+In this lesson, we will guide you step-by-step to acquire zkSync ETH on the testnet using the _bridging method_.
 
 ### Wallet Connection
 
-You can begin by navigating to the [zkSync Bridge](https://portal.zksync.io/bridge) app and clicking on the "Connect Wallet" button. Select MetaMask, and when prompted, enter your password. After connecting, ensure you are on the **Sepolia Test Network**. If you lack Sepolia ETH, use the [GCP faucet](https://cloud.google.com/application/web3/faucet/ethereum/sepolia) or any other [recommended testnet faucets](https://github.com/Cyfrin/foundry-full-course-cu?tab=readme-ov-file#testnet-faucets).
+You can begin by navigating to the [zkSync Bridge](https://portal.zksync.io/bridge) app and clicking on the "Connect Wallet" button. Select MetaMask, and when prompted, enter your password. After connecting, ensure you are on the **Sepolia Test Network**. If you lack Sepolia ETH, use the [GCP faucet](https://cloud.google.com/application/web3/faucet/ethereum/sepolia) or any other recommended testnet faucets
 
 ### Bridging Sepolia
 
@@ -609,3 +609,45 @@ Select "Continue," and proceed to bridge your funds. Confirm the transaction on 
 While waiting, you can add the zkSync Sepolia Testnet to MetaMask. Go to [Chainlist](https://chainlist.org/), search for "zkSync Sepolia" while including testnets, and connect your wallet. Approve the network addition and switch to the zkSync Sepolia Testnet.
 
 Once the transaction completes, you will see the funds appear in your MetaMask wallet under the zkSync Sepolia Testnet. With the correct funds in your wallet, you can now proceed to deploy contracts in Remix.
+
+## Zksync Plugin
+
+In this lesson, you're about to learn the same type of layer 2 or rollup deployment that professional developers are using. On Remix, we can start by activating the **zkSync plugin** in our environment. In the _plugin manager_, search for "zkSync" and activate the zkSync module. You'll notice that a new zkSync tab on the left side will appear.
+
+<img src='./images/zksync-plugin/zksync-module.png' alt='zksync-module' />
+
+This module is made of sections for compiling, deploying, and interacting with contracts on zkSync.
+
+### Compiling
+
+Let's start by compiling the `SimpleStorage.sol` file by hitting the "Compile" button.
+
+> 👀❗**IMPORTANT**:br
+> Ensure that the **Solidity Compiler Version** in the contract matches the _zkSync compiler requirements_. As of this recording, the required version is `0.8.24`.
+
+### Deploying
+
+After compilation, you can go to the `environment tab` to connect your MetaMask wallet, ensuring it is set to the _zkSync Sepolia testnet_. Once connected, you can **deploy and verify** the `SimpleStorage` contract.
+
+<img src='./images/zksync-plugin/wallet.png' alt='wallet' />
+
+### Verifying Deployment
+
+After hitting the deploy button, MetaMask will request a **signature**. Approve it, and after a short delay, a detailed output will appear indicating the deployment status. If the terminal output shows a green "verification successful" message, it means that your contract has been both deployed and verified correctly.
+
+### Checking the Deployment
+
+To check our deployment, you can copy the contract address and paste it into the [zksync Sepolia explorer](https://sepolia.explorer.zksync.io/). Here, you can view the contract details.
+
+> 👀❗**IMPORTANT**:br
+> At the moment of recording, the zkSync plugin contains a minor bug. Please refer to lesson 14.
+
+### Conclusion
+
+Well done! You've successfully deployed a smart contract to the zkSync testnet, marking a notable achievement and a significant step forward in your development journey.
+
+### zkSync compiler issue
+
+As of today, in order for the zkSync compiler to work, you need to create a new folder named `contracts` and place your `*.sol` file into their. Otherwise, your `Deploy` tab in the zkSync plugin will be blank!
+
+<img src='./images/zksync-plugin/file-in-contracts.png' alt='file-in-contracts' />
