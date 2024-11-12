@@ -298,7 +298,7 @@ function something() public {
 
 Up to this point, the `SimpleStorage` contract allows for storing, updating, and viewing a single favorite number. In this lesson, we'll enhance the code to store multiple numbers, enabling more than one person to store their values. We'll learn how to create a list of favorite numbers using **arrays**, and we'll explore the **`struct`** keyword for creating new types in Solidity.
 
-### Arrays and struct
+## Arrays and struct
 
 First we need to replace the `uint256 favoriteNumber` with a list of `uint256` numbers:
 
@@ -570,95 +570,3 @@ Since the contract has been deployed, we can now interact with it and **update t
 > _Celebrate small victories and milestones. These psychological boosts will keep you engaged in the learning process._
 
 It's possible to deploy a contract to different testnets or a real mainnet, just by switching the MetaMask network. Be sure to have enough net-compatible ETHs to deploy your contract.
-
-<!--
-
-### Structs
-
-a way to define new types in the form of structs. [learn more](https://docs.soliditylang.org/en/v0.8.26/types.html#structs)
-
-```js
-    struct Person {
-        uint256 favouriteNumber;
-        string name;
-    }
-
-    Person public person = Person({
-        favouriteNumber: 10,
-        name: "John",
-    });
-```
-
-### Array
-
-a data structure that holds a llist of other types. [learn more](https://docs.soliditylang.org/en/v0.8.26/types.html#arrays)
-
-Person[] => array of Person struct
-public => visibility
-people => name of the array
-
-```js
-    Person[] public people;
-```
-
-#### Size of an Array
-
-People[] => dynamic array
-People[5] => fixed-size array
-
-#### Add to array
-
-```js
-people.push(
-	Person({
-		favouriteNumber: _favouriteNumber,
-		name: _name,
-	})
-);
-```
-
-### Errrors & Warnings
-
-1. Warning => won't stop your code from working but it's usually a good idea to check them out
-2. Error => will stop your code from working
-
-### Memory, Storage & Calldata
-
-EVM can access and store information in six places
-
-1. Memory => variable is only going to exist tempporarily and can be modified
-2. Storage => exist even outside of just the function execution and is permanent and can be mofified
-3. Calldata => variable is only going to exist tempporarily but can not be modified
-4. Stack
-5. Code
-6. Logs
-
-```js
-    function addPerson(string memory _name, uinit256 _favouriteNumber) public {
-        _name = "cat"; // if _name is memeory it can be modified, but if it is calldata it is not possible to modified
-
-        people.push(Person({
-            favouriteNumber: _favouriteNumber,
-            name: _name
-        }));
-    }
-```
-
--   data location can only be specified for array, struct or mapping types
-
-### Mappings
-
-a data structure where a key is mapped to a single value
-
-```js
-    mapping(string => uint256) public nameToFavouriteNumber;
-
-    function addPerson(string memory _name, uinit256 _favouriteNumber) public {
-        // string name is being mapped to uint256 favouriteNumber;
-        nameToFavouriteNumber[_name] = _favouriteNumber;
-    }
-```
-
-## Deploying Your Contract
-
-in Remix you can change the environment to "**InjectedProvider**" to connect to your metamask wallet. you can see your wallet address in "ACCOUNT" input -->
