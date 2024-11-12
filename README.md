@@ -2,14 +2,14 @@
 
 ## Remix IDE
 
-Open this link [to get started]("https://remix.ethereum.org/")
+Open this link [to get started](https://remix.ethereum.org/)
 
 This is an IDE (Integrated Development Environment), a powerful tool used to build and develop smart contracts in Solidity. It helps to easily visualize and interact with our smart contracts. It contains a file explorer that hosts all the files, a Solidity compiler and a tab where you can deploy your contracts.
 
 1. 🧹 Remove all the existing files and folders by right-clicking on them (optional).
 2. ✨ Create a new file, e.g., `SimpleStorage.sol`. The `.sol` extension tells the compiler that this is a Solidity file.
 
-## Compiler directive
+### Compiler directive
 
 The `pragma` directive specifies the _version_ of the Solidity compiler that you want to use to build your source file. When the compiler encounters this line, it will check its version against the one you specified here. If the compiler version is different, Remix will automatically adjust accordingly to your specifications.
 
@@ -32,7 +32,7 @@ pragma solidity >=0.8.19 <0.9.0;
 > 🗒️ **NOTE**:br
 > Remember to write comments in your code for you to refer to later on.
 
-## SPDX License Identifier
+### SPDX License Identifier
 
 It's a good practice (even not mandatory) to start your smart contract with an SPDX License Identifier. It helps in making licensing and sharing code easier from a legal perspective.
 
@@ -43,7 +43,7 @@ pragma solidity ^0.8.19;
 
 The MIT license is recognized as one of the most permissive, granting anyone the freedom to use the following code and essentially use it as they see fit.
 
-## Writing the Smart Contract
+### Writing the Smart Contract
 
 You can start writing your contract using the keyword `contract` followed by a name, e.g., `SimpleStorage`. All the code inside the curly brackets will be considered part of this contract.
 
@@ -58,7 +58,7 @@ contract SimpleStorage {
 }
 ```
 
-## Compiling
+### Compiling
 
 1. In Remix IDE, select the Solidity Compiler.
 2. Choose the version of the compiler that matches the version specified in your Solidity file.
@@ -70,18 +70,74 @@ If you see a green checkmark, it means your compilation was successful. If there
 
 EVM => Ethereum Virtual Machine
 
-## Types
+## Solidity Types
 
-There are many types in solidity but the most importants are:
+Solidity supports various _elementary_ types that can be combined to create more _complex_ ones. You can read more about them in the [Solidity documentation](https://docs.soliditylang.org/en/v0.8.20/types.html#types).
 
-1. boolean => true or false
-2. uint => unsigned integer => non-negative values
-3. int => both positive and negative values
-4. address
-5. bytes
-6. string
+🕵️‍♂️ For now, let's focus on the most commonly used
 
-You can see the whote types in [here](https://docs.soliditylang.org/en/v0.8.26/types.html)
+-   Boolean (bool): true or false
+-   Unsigned Integer (uint): unsigned whole number (positive)
+-   Integer (int): signed whole number (positive and negative)
+-   Address (address): 20 bytes value. An example of an address can be found within your MetaMask account.
+-   Bytes (bytes): low-level raw byte data
+
+### Variables definition
+
+Variables are just placeholders for **values**. A value can be one **data type** described in the list above. For instance, we could create a Boolean variable named `hasFavoriteNumber`, which would represent whether someone has a favourite number or not (constant `true` or `false`).
+
+```solidity
+bool hasFavoriteNumber = true; // The variable `hasFavoriteNumber` represents the value `true`
+```
+
+It's possible to specify the number of **bits** used for `uint` and `int`. For example, uint256 specifies that the variable has 256 bits. uint is a shorthand for uint256.
+
+> 🗒️ **NOTE**:br
+> It's always advisable to be **explicit** when specifying the length of the data type.
+
+The _semicolon_ at the end of each line signifies that a statement is completed.
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.19;
+
+contract SimpleStorage {
+    // Basic types
+    bool hasFavoriteNumber = true;
+    uint256 favoriteNumber = 88;
+    string favoriteNumberInText = "eighty-eight";
+    int256 favoriteInt = -88;
+    address myAddress = 0xaB1B7206AA6840C795aB7A6AE8b15417b7E63a8d;
+    bytes32 favoriteBytes32 = "cat";
+}
+```
+
+### Bytes and strings
+
+Bytes are a _collection of characters_ written in hexadecimal representation.
+
+```solidity
+bytes1 minBytes = "I am a fixed size byte array of 1 byte";
+bytes32 maxBytes = "I am a fixed size byte array of 32 bytes";
+bytes dynamicBytes = "I am a dynamic array, so you can manipulate my size";
+```
+
+Bytes can be allocated in size (up to `bytes32`). However, bytes and bytes32 represent distinct data types.
+
+**Strings** are internally represented as _dynamic byte arrays_ (`bytes` type) and designed specifically for working with text. For this reason, a string can easily be converted into bytes.
+
+[Bits and Bytes overview](https://www.youtube.com/watch?v=Dnd28lQHquU)
+
+### The contract logic
+
+📋 Let's explore a scenario where there is a task involving the storage of a favourite number. For this purpose, we can start storing the variable `favoriteNumber` of type `uint`:
+
+```solidity
+uint256 favoriteNumber;
+```
+
+> 👀❗**IMPORTANT**:br
+> Every variable in Solidity comes with a _default value_. Uninitialized uint256 for example, defaults to `0` (zero) and an uninitialized boolean defaults to `false`.
 
 ## Variables
 
