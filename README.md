@@ -655,3 +655,11 @@ Ensure that your `SimpleStorage.sol` smart contract is on Remix. Then, you can e
 This issue arises due to a small bug in the plugin, which requires your smart contracts to be inside a **`contracts`** **folder**. To resolve this, you can create a new folder named 'contracts' and move your smart contract into it. You can then proceed to compile the contract again, and you should be able to deploy it without any issues.
 
 <img src='./images/zksync-plugin/file-in-contracts.png' alt='file-in-contracts' />
+
+## Zksync Interactions
+
+> In the zkSync module section `transactions`, you'll find buttons for calling `SimpleStorage` functions like `addPerson`, `listOfPeople`, `nameToFavoriteNumber`, `retrieve`, and `store`. Clicking the blue buttons will display the output in the terminal, while the orange buttons are used for storing values.
+
+<img src='./images/zksync-intraction/interactions.png' alt='interactions' />
+
+For example, when you click the orange `store` button and enter the number `77`, MetaMask will prompt you for confirmation. Once confirmed, you can click `retrieve` to see the stored value. Feel free to experiment with these functions, but keep in mind that the testnet can sometimes be a bit slow.
